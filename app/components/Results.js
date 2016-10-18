@@ -6,33 +6,29 @@ import UserDetailsWrapper from './UserDetailsWrapper'
 import MainContainer from './MainContainer'
 import Loading from './Loading'
 
-function StartOver () {
-  return (
-    <div className='col-sm-12' style={space}>
-      <Link to='/playerOne'>
-        <button type='button' className='btn btn-lg btn-danger'>Start Over</button>
-      </Link>
-    </div>
-  )
-}
+const StartOver = () => (
+  <div className='col-sm-12' style={space}>
+    <Link to='/playerOne'>
+      <button type='button' className='btn btn-lg btn-danger'>Start Over</button>
+    </Link>
+  </div>
+)
 
-function Tie () {
-  return (
-    <MainContainer>
-      <h1>It's a Tie!</h1>
-      <StartOver />
-    </MainContainer>
-  )
-}
+const Tie = () => (
+  <MainContainer>
+    <h1>It's a Tie!</h1>
+    <StartOver />
+  </MainContainer>
+)
 
-function Results ({ isLoading, scores, playersInfo }) {
+const Results = ({ isLoading, scores, playersInfo }) => {
   if (isLoading === true) {
     return <Loading />
   }
 
   if (scores[0] === scores[1]) {
     return (
-      <Tie scores={scores} playersInfo={playersInfo}/>
+      <Tie scores={scores} playersInfo={playersInfo} />
     )
   }
 
